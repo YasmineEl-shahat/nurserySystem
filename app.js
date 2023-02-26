@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 const teacherRoute = require("./Routes/teacherRoute");
 const childRoute = require("./Routes/childRoute");
 const classRoute = require("./Routes/classRoute");
+const loginRoute = require("./Routes/login");
+const authenticationMW = require("./Core/auth/authenticationMW");
 //  open server using express
 const server = express(); // create http server -> http.createServer()
 
@@ -50,16 +52,13 @@ morgan(function (tokens, request, res) {
   ].join(" ");
 });
 
-// second middleware
-server.use((request, response, next) => {
-  console.log("Authorization mw");
-  if (true) next();
-  else next(new Error("not authorized"));
-});
-
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
+
 //Routes
+server.use(loginRoute);
+//auth middleware
+server.use(authenticationMW);
 server.use(teacherRoute);
 server.use(childRoute);
 server.use(classRoute);

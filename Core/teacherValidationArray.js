@@ -17,7 +17,7 @@ exports.validatePostArray = [
       "password should contains at least 8 characters, one uppercase letter, one lowercase letter,one special char, and one number"
     ),
   body("email").isEmail().withMessage("invalid mail"),
-  body("image").isString().withMessage("invalid image"),
+  // body("image").isString().withMessage("invalid image"),
 ];
 exports.validatePatchArray = [
   body("fullname")
@@ -33,5 +33,5 @@ exports.validatePatchArray = [
       "password should contains at least 8 characters, one uppercase letter, one lowercase letter,one special char, and one number"
     ),
   body("email").optional().isEmail().withMessage("invalid mail"),
-  body("image").optional().isString().withMessage("invalid image"),
+  // body("image").optional().isString().withMessage("invalid image"),
 ];

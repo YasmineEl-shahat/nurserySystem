@@ -12,6 +12,7 @@ exports.getAllTeachers = (request, response, next) => {
 };
 
 exports.addTeacher = (request, response, next) => {
+  console.log(request.file);
   new teacherSchema({
     _id: request.body._id,
     fullname: request.body.fullname,
