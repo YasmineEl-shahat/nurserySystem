@@ -9,11 +9,11 @@ A Backend Server ( based on `node.js` and `express` framework) using `MongoDB` a
 - Download the dependencies with `npm` package manager
 
 ```
-$ npm install
+npm install
 ```
 
 ```
-$ npm start
+npm start
 ```
 
 ## Executing program
