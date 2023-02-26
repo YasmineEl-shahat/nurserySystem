@@ -18,7 +18,7 @@ exports.addTeacher = (request, response, next) => {
     fullname: request.body.fullname,
     password: request.body.password,
     email: request.body.email,
-    image: request.body.image,
+    image: request.file?.path ? request.file.path : "",
   })
     .save()
     .then((data) => response.status(201).json({ data }))
@@ -34,7 +34,7 @@ exports.updateTeacher = (request, response, next) => {
           fullname: request.body.fullname,
           password: request.body.password,
           email: request.body.email,
-          image: request.body.image,
+          image: request.file?.path ? request.file.path : "",
         },
       }
     )
